@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav.navbar {
+    width: 100%;
+    z-index: 999;
+}
+
+
+@media (min-width: 768px) {
+    .navbar-brand.abs
+        {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            text-align: center;
+        } 
+    
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    .border-col {
+        border-bottom: solid 1px rgba(0, 0, 0, 0.15)
+    }  
+}
+
+
+@media (min-width: 1281px) {
+    .carousel-inner > .carousel-item > img {
+        width:100%;
+        height:90vh;
+    }
+    .border-col {
+        border-right: solid 2px rgba(0, 0, 0, 0.15)
+    }  
+}
+    
+      
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .carousel-inner > .carousel-item > img {
+        width:100%;
+        height:90vh;
+    }
+    .border-col {
+        border-right: solid 2px rgba(0, 0, 0, 0.15)
+    }   
+}
+
+
+nav.navbar.navbar-light.navbar-expand-md.bg-faded.justify-content-center {
+    background-color: #85d4b7 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff !important;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0,0,0,0.6) !important;
+}
+
+div#social-media {
+    width: 100%;
+    height: 50px;
+    background-color: #85d4b7;
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.6em;
+    color:#fff
+}
+
+div#social-media a {
+    color:#fff;
+    margin-right: 15px;
+}
+
+.navbar-light .navbar-toggler {
+    color: #fff !important;
+    border-color: #fff !important;
+}
+.icon-bar {
+    background-color: #fff !important;
+}
+
+.d-md-block {
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 2px;
+}
+.row {
+    padding:30px 0;
+}
+
+.col {
+    padding-top: 30px;
+}
+
+.right-content {
+    text-align: right;
+    float: right;
+}
+p.subtitle {
+    border-bottom: solid 2px rgba(0,0,0,0.6);
+    color: rgba(0,0,0,0.6);
+}
+
+section#galery {
+    background-color: #6dccaa;
+    width: 100%;
+    padding:50px;
+}
+section#galery h1 {
+    color:#fff;
+}
+
+
+#footer {
+    width: 100%;
+    color:#fff;
+    background-color:#333;
+    margin-bottom: 0;
+}
+
+/*Galería */
+
+.blog .carousel-indicators {
+	left: 0;
+	top: auto;
+    bottom: -40px;
+
+}
+
+/* The colour of the indicators */
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+.blog .carousel-indicators .active {
+background: #707070;
+}

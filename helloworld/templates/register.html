@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static  "addons/css/styles.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>Mis perris</title>
+</head>
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+    <a href="/" class="navbar-brand d-flex w-50 mr-auto">
+      <img src="{% static "addons/img/logo.png" %}" width="178" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/#main-content">Quienes somos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/#galery">Adopción</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#footer">Contacto</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="/cerrarsesion">Cerrar Sesion</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="/login/">Ingresar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register/">Postular</a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </div>
+</nav>
+
+<section id="main-content">
+    <div class="container" id="postular">
+        <div class="row">
+          <div class="col-md-12">
+              <h1 style=>Postula</h1>
+          </div>
+          <div class="col-md-12">
+              <p class="subtitle">¿Te gustaría adoptar una mascota? ¡Llena este formulario y te contactaremos!</p>
+          </div>
+        </div> 
+          <form action="/register/createUser/" method="POST">
+            {% csrf_token %}
+              <div class="form-row">
+                <div class="col">
+                  <label for="email">Email</label>
+                  <input type="text" name="email" class="form-control" id="email" placeholder="Ingresa un email..." required>
+                </div>
+                <div class="col">
+                    <label for="rut">Rut</label>
+                    <input type="text" name="rut" class="form-control" id="rut" placeholder="Ingresa un rut..." required>
+                </div>
+              </div>
+              <div class="form-row">
+                  <div class="col">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Ingresa un nombre..." required>
+                  </div>
+                  <div class="col">
+                      <label for="born">Fecha nacimiento</label>
+                      <input type="date" name="born" max="2001-01-01" id="born" class="form-control" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="name-input">Numero de teléfono</label>
+                        <input type="number" name="number" class="form-control" id="name-input" placeholder="Ingresa tu numero de teléfono..." required>
+                    </div>
+                    <div class="col">
+                        <label for="regiones">Region</label>
+                        <select class="form-control" name="region" id="regiones"></select>
+                    </div>
+                  </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="comunas">Comuna</label>
+                            <select class="form-control" name="comuna" id="comunas"></select>
+                        </div>
+                        <div class="col">
+                            <label for="casa">Tipo de casa</label>
+                            <select class="form-control" name="house" id="casa"></select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                          <label for="password">Contraseña</label>
+                          <input type="password" class="form-control" name="password" id="password" placeholder="Ingresa una contraseña" required>
+                        </div>
+                        <div class="col">
+                            <label for="password_repeat">Repetir contraseña</label>
+                            <input type="password" class="form-control" name="password2" id="password_repeat" placeholder="Repite la contraseña" required>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col">
+                          <button type="submit" id="register-btn" class="btn btn-primary" onclick="checkValidations()">Registrarme</button>
+                      </div>
+                    </div>
+
+            </form>
+      </div>   
+</section>
+    
+
+<!-- JS Extras -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+<!-- JS Mis perris -->
+<!-- JS Mis perris -->
+    <script src="{% static "addons/js/forms.js" %}"></script>
+    
+
+    <script>
+        var password = $('#password').val();
+		var password2 = $('#password_repeat').val();
+		alert(password, password2);
+		if(password!=password2) {
+			alert('Las contraseñas no coinciden...');
+			return false;
+		}
+    </script>
+</body>
+</html>

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'helloworld',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -73,13 +74,15 @@ WSGI_APPLICATION = 'ec2django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-"""DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}"""
+}
 
+
+"""
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
@@ -90,7 +93,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+"""
 
 
 # Password validation
@@ -111,6 +114,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

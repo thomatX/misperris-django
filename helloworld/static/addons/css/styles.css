@@ -140,3 +140,7 @@ section#galery h1 {
 .blog .carousel-indicators .active {
 background: #707070;
 }
+
+.fb-button {
+    background-color: #3B5998;
+}

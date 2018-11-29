@@ -1,5 +1,5 @@
 # helloworld/urls.py
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from . import views
@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^delete/dogs/(?P<pk>\d+)/$',views.delete_dogs,name="delete_dogs"),
     url(r'^api-framework/usuarios$',views.UsuarioList.as_view()),
     url(r'^api-framework/rescatados$',views.RescatadoList.as_view()),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^password/recovery/$',
         auth_views.PasswordResetView.as_view(
             template_name='password_reset_form.html',

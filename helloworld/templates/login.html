@@ -53,31 +53,31 @@
 <section id="main-content">
     <div class="container" id="postular">
         <div class="row">
-          <div class="col-md-12">
-              <h1 style=>Inicia Sesión</h1>
-          </div>
-          <div class="col-md-12">
-              <p class="subtitle">¡Inicia sesión y comienza a adoptar!</p>
-          </div>
-        </div> 
-        <form method="POST" class="form-signin" action="{% url "iniciar" %}">
-            {% csrf_token %}
-            <div class="form-row">
-                <div class="col">
-                    <label for="inputRut"  class="sr-only">Rut</label>
-                    <input type="text" id="inputRut" name="rut" class="form-control" placeholder="Ingresa tu rut..." required autofocus> 
-                </div>
-              </div>
-            <div class="form-row">
-                <div class="col">
-                    <label for="inputPassword" class="sr-only">Contraseña</label>
-                    <input type="password" name="contrasenia" id="inputPassword" class="form-control" placeholder="Ingresa tu password..." required>
-                </div>
-            </div></br>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button></br>
-          <a href="/password/recovery/">¿Olvidaste tu contraseña?</a>
-          <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-        </form>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form method="POST" class="form-signin" action="{% url "iniciar" %}">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="inputRut"  class="sr-only">Rut</label>
+                            <input type="text" id="inputRut" name="rut" class="form-control" placeholder="Ingresa tu rut..." required autofocus> 
+                        </div>
+                      </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="inputPassword" class="sr-only">Contraseña</label>
+                            <input type="password" name="contrasenia" id="inputPassword" class="form-control" placeholder="Ingresa tu password..." required>
+                        </div>
+                    </div></br>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button></br>
+                  <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-lg btn-primary btn-block" style="background-color: #3B5998"><i class="fab fa-facebook-f"></i> Login with Facebook
+                  </a>
+                  <a href="/password/recovery/">¿Olvidaste tu contraseña?</a>
+                  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+                </form>
+            </div>
+        </div>
+        
       </div>   
 </section>
     
